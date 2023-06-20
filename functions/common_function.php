@@ -35,7 +35,7 @@ function getproducts(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
@@ -80,7 +80,7 @@ function get_unique_categories(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
@@ -124,7 +124,7 @@ function get_unique_occassion(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
@@ -200,7 +200,7 @@ function searchproduct(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
@@ -245,7 +245,7 @@ function view_details(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
@@ -289,5 +289,24 @@ function getIPAddress() {
 // echo 'User Real IP Address - '.$ip;  
 
 //cart function
+function cart() {
+    if (isset($_GET['add_to_cart'])) {
+        global $con;
+        $get_ip_address = getIPAddress();
+        $get_product_id = $_GET['add_to_cart'];
+        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_address' AND product_id='$get_product_id'";
+        $result_query = mysqli_query($con, $select_query);
+        $num_of_rows = mysqli_num_rows($result_query);
+        if ($num_of_rows > 0) {
+            echo "<script>alert('This item is already in the cart')</script>";
+            echo "<script>window.open('buildaboxpage.php','_self')</script>";
+        } else {
+            $insert_query = "INSERT INTO `cart_details` (product_id, ip_address, quantity) VALUES ($get_product_id, '$get_ip_address', 0)";
+            $result_query = mysqli_query($con, $insert_query); // Corrected variable name from $select_query to $insert_query
+            echo "<script>alert('This item is added to the cart')</script>";
+            echo "<script>window.open('buildaboxpage.php','_self')</script>";
+        }
+    }
+}
 
 ?>
