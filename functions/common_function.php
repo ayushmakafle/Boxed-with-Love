@@ -36,7 +36,7 @@ function getproducts(){
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
         </div>";
@@ -81,7 +81,7 @@ function get_unique_categories(){
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
         </div>";
@@ -125,7 +125,7 @@ function get_unique_occassion(){
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
         </div>";
@@ -201,11 +201,71 @@ function searchproduct(){
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
-                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
             </div>
         </div>";
     }
+}
+}
+
+//view deatils function
+function view_details(){
+    global $con; // assuming $con is the database connection variable
+
+    //condition to check isset or not
+    if(isset($_GET['product_id'])){
+    if(!isset($_GET['category'])){
+        if(!isset($_GET['occassion'])){
+    $product_id=$_GET['product_id'];
+    $select_query = "SELECT * FROM `products` where product_id=$product_id";
+    $result_query = mysqli_query($con, $select_query);
+
+    if (!$result_query) {
+        // Handle query error
+        echo "Error executing query: " . mysqli_error($con);
+        return;
+    }
+
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $product_id = $row['product_id'];
+        $product_title = $row['product_title'];
+        $product_description = $row['product_description'];
+        $product_category = $row['product_category'];
+        $product_occasion = $row['product_occasion'];
+        $product_price = $row['product_price'];
+        $product_image1 = $row['product_image1'];
+        $product_image2 = $row['product_image2'];
+        $product_image3 = $row['product_image3'];
+
+        echo "
+        <div class='col-md-4 mb-2'>
+            <div class='card'>
+                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <div class='card-body'>
+                    <h5 class='card-title'>$product_title</h5>
+                    <p class='card-text'>$product_description</p>
+                    <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
+                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-8'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h4 class='text-center text-danger mb-5'>Related Products</h4>
+            </div>
+            <div class='col-md-6'>
+                <img class='card-img-top' src='./admin_area/product_images/$product_image2' alt='$product_title'>
+            </div>
+            <div class='col-md-6'>
+                <img class='card-img-top' src='./admin_area/product_images/$product_image3' alt='$product_title'>
+            </div>
+        </div>
+    </div>";
+    }
+}
+}
 }
 }
 ?>
