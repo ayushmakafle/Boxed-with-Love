@@ -174,7 +174,10 @@ function searchproduct(){
     $search_query = "SELECT * FROM `products` where product_keywords like
     '%$search_data_value%'";
     $result_query = mysqli_query($con, $search_query);
-
+    $num_of_rows=mysqli_num_rows($result_query);
+    if($num_of_rows==0){
+        echo "<h3 class='text-center text-danger'>No results match</h3>";
+    }
     if (!$result_query) {
         // Handle query error
         echo "Error executing query: " . mysqli_error($con);
