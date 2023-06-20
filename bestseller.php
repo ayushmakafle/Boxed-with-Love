@@ -12,15 +12,19 @@
     </head>
 
     <body>
+        <!--calling cart function-->
+        <!--?php
+        cart();
+      ?-->
         <!--Nav bar-->
 		 <section id ="header">
             <a href="index.php"><img src="img/logoo.png" ></a>
             <div>
                 <ul id ="navbar">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="bestseller.html" class="active">Best Sellers</a></li>
+                    <li><a href="buildaboxpage.php">Build a Box</a></li>
+                    <li><a href="bestseller.php" class="active">Best Sellers</a></li>
 					<li><a href="letthemchoose.html">Let them choose</a></li>
-					<li><a href="aboutus.html">About us</a></li>
 					<li> <a href="login.html"><i class="far fa-user"></i></a></li>
                     <li> <a href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
 				</ul>

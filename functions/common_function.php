@@ -246,7 +246,7 @@ function view_details(){
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
-                    <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
+                    <a href='buildaboxpage.php' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Go Back</a>
                 </div>
             </div>
         </div>
@@ -294,7 +294,8 @@ function cart() {
         global $con;
         $get_ip_address = getIPAddress();
         $get_product_id = $_GET['add_to_cart'];
-        $select_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_address' AND product_id='$get_product_id'";
+        $select_query = "SELECT * FROM `cart_details` WHERE 
+        ip_address='$get_ip_address' AND product_id='$get_product_id'";
         $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows > 0) {
@@ -309,4 +310,23 @@ function cart() {
     }
 }
 
+//cart item numbers
+function cart_item(){
+    if (isset($_GET['add_to_cart'])) {
+        global $con;
+        $get_ip_address = getIPAddress();
+        $select_query = "SELECT * FROM `cart_details` WHERE 
+        ip_address='$get_ip_address'";
+        $result_query = mysqli_query($con, $select_query);
+        $count_cart_items = mysqli_num_rows($result_query);
+        } else {
+            global $con;
+            $get_ip_address = getIPAddress();
+            $select_query = "SELECT * FROM `cart_details` WHERE 
+            ip_address='$get_ip_address'";
+            $result_query = mysqli_query($con, $select_query);
+            $count_cart_items = mysqli_num_rows($result_query);
+        }
+        echo $count_cart_items;
+    }
 ?>

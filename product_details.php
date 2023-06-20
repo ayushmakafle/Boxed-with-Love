@@ -37,7 +37,10 @@
 			</div>
       </section>
             <!--navbar end-->
-            
+            <!--calling cart function-->
+          <?php
+            cart();
+          ?>
             <!--build box nav bar-->
       <div class="container-fluid p-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-danger-subtle">
