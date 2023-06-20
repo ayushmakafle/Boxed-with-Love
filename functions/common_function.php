@@ -35,6 +35,7 @@ function getproducts(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'>NRs $product_price</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
@@ -80,6 +81,7 @@ function get_unique_categories(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'>NRs $product_price</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
@@ -94,13 +96,15 @@ function get_unique_occassion(){
     global $con; // assuming $con is the database connection variable
 
     //condition to check isset or not
-    if(isset($_GET['occassion'])){
-    $occassion_id=$_GET['occassion'];
-    $select_query = "SELECT * FROM `products` where product_occasion='$occassion_id'";
+    if(isset($_GET['occasion'])){
+    $occasion_id=$_GET['occasion'];
+    $select_query = "SELECT * FROM `products`
+     where product_occasion='$occasion_id'";
     $result_query = mysqli_query($con, $select_query);
     $num_of_rows=mysqli_num_rows($result_query);
     if($num_of_rows==0){
-        echo "<h3 class='text-center text-danger'> No stock for this occassion</h3>";
+        echo "<h3 class='text-center text-danger'> 
+        No stock for this occassion</h3>";
     }
     if (!$result_query) {
         // Handle query error
@@ -124,6 +128,7 @@ function get_unique_occassion(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'>NRs $product_price</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
@@ -200,6 +205,7 @@ function searchproduct(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'>NRs $product_price</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>View More</a>
                 </div>
@@ -245,6 +251,7 @@ function view_details(){
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
+                    <p class='card-text'>NRs $product_price</p>
                     <a href='buildaboxpage.php?add_to_cart=$product_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Add To Box</a>
                     <a href='buildaboxpage.php' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Go Back</a>
                 </div>
@@ -329,4 +336,24 @@ function cart_item(){
         }
         echo $count_cart_items;
     }
+
+//total price
+function total_cart_price(){
+    global $con;
+    $total_price = 0;
+    $get_ip_address = getIPAddress();
+    $cart_query = "SELECT * from `cart_details` where ip_address='$get_ip_address'";
+    $result = mysqli_query($con,$cart_query);
+    while($row = mysqli_fetch_array($result)){
+        $product_id = $row['product_id'];
+        $select_products = "SELECT * from `products` where product_id='$product_id'";
+        $result_product = mysqli_query($con,$select_products);
+        while($row_product_price = mysqli_fetch_array($result_product)){
+            $product_price=array($row_product_price['product_price']);
+            $product_values=array_sum($product_price);
+            $total_price += $product_values;
+    }
+}
+echo $total_price;
+}
 ?>

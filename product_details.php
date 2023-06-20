@@ -22,10 +22,10 @@
             <a href="index.php"><img src="img/logoo.png" ></a>
             <div>
                 <ul id ="navbar">
-                    <li><a href="index.php" class="active">Home</a></li>
-                    <li><a href="bestseller.html">Best Sellers</a></li>
-					<li><a href="letthemchoose.html">Let them choose</a></li>
-					<li><a href="aboutus.html">About us</a></li>
+                <li><a href="index.php">Home</a></li>
+                    <li><a href="buildaboxpage.php" class="active">Build a Box</a></li>
+                    <li><a href="bestseller.php" >Best Sellers</a></li>
+										<li><a href="letthemchoose.html">Let them choose</a></li>
 					<li> <a href="login.html"><i class="far fa-user"></i></a></li>
           <li id="lg-bag"> <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
@@ -57,8 +57,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pick a Card</a>
                           </li>
+                          <li class="nav-item">
+                          <a class="nav-link" href="#"> <i class="fa-solid fa-cart-shopping"></i>
+                          <sup> <?php cart_item(); ?></sup></a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total: 100/-</a>
+                            <a class="nav-link" href="#">NRs
+                              <?php total_cart_price(); ?>
+                            </a>
                         </li>
                       </ul>
                 </div>

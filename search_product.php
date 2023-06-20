@@ -57,8 +57,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pick a Card</a>
                           </li>
+                          <li class="nav-item">
+                          <a class="nav-link" href="#"> <i class="fa-solid fa-cart-shopping"></i>
+                          <sup> <?php cart_item(); ?></sup></a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total: 100/-</a>
+                            <a class="nav-link" href="#">NRs
+                              <?php total_cart_price(); ?>
+                            </a>
                         </li>
                       </ul>
                 </div>
