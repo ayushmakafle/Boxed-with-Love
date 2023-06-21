@@ -49,16 +49,7 @@
     <div class="row">
         <form action="" method="post"> 
         <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th> Product </th>
-                    <th> Image</th>
-                    <th> Quantity</th>
-                    <th> Total Price</th>
-                    <th> Remove</th>
-                    <th colspan="2"> Operations</th>
-                </tr>
-            </thead>
+           
             <tbody>
                 <?php
                 global $con;
@@ -66,6 +57,18 @@
                 $get_ip_address = getIPAddress();
                 $cart_query = "SELECT * from `cart_details` where ip_address='$get_ip_address'";
                 $result = mysqli_query($con,$cart_query);
+                $result_count=mysqli_num_rows($result);
+                if($result_count>0){
+                    echo" <thead>
+                    <tr>
+                        <th> Product </th>
+                        <th> Image</th>
+                        <th> Quantity</th>
+                        <th> Total Price</th>
+                        <th> Remove</th>
+                        <th colspan='2'> Operations</th>
+                    </tr>
+                </thead>";
                 while($row = mysqli_fetch_array($result)){
                     $product_id = $row['product_id'];
                     $select_products = "SELECT * from `products` where product_id='$product_id'";
@@ -117,22 +120,41 @@
                 <?php
                 }
             }
+        }
+        else{
+            echo "<br><h3 class='text-center text-danger'>Cart is empty</h3>";
+        }
             ?>
             </tbody>
         </table>
+
         <!--subtotal-->
         <div class="d-flex mb-5">
-            <h4 class="px-3">Subtotal: <strong class="text-danger">
-            <?php echo $total_price?></strong></h4>
-            <a href="buildaboxpage.php"><button class="bg-danger
-            px-3 py-2 border-0 mx-3 text-light">Add more treasures </button></a>
-            <a href="#"><button class="bg-danger
-            px-3 py-2 border-0 text-light">Checkout </button></a>
-        
+        <?php
+                global $con;
+                $get_ip_address = getIPAddress();
+                $cart_query = "SELECT * from `cart_details` where ip_address='$get_ip_address'";
+                $result = mysqli_query($con,$cart_query);
+                $result_count=mysqli_num_rows($result);
+                if($result_count>0){
+                    echo"   <h4 class='px-3'>Subtotal: 
+                    <strong class='text-danger'>
+                    $total_price</strong></h4>
+                    <a href='buildaboxpage.php'>
+                    <button class='bg-danger
+                    px-3 py-2 border-0 mx-3 text-light'>
+                    Add more treasures </button></a>
+                    <a href='#'><button class='bg-danger
+                    px-3 py-2 border-0 text-light'>Checkout </button></a>
+        ";}else{
+        }
+        ?>        
+         
         </div>
-    </div>
+                </div>
+                </form>
  </div>
- </form>   
+  
  <!--function to remove item-->
  <?php
  function remove_cart_item(){
@@ -146,12 +168,13 @@
             if($run_delete){
                 echo"<script>window.open('cart.php','_self')
                 </script>";
-            }
+            } 
         }
     }
  }
  echo $remove_item=remove_cart_item();
  ?>
+ 
 
 		<!--Footer-->
 		<footer class="section-p1">
