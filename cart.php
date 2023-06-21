@@ -23,7 +23,7 @@
             <div>
                 <ul id ="navbar">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="buildaboxpage.php" class="active">Build a Box</a></li>
+                    <li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php" >Best Sellers</a></li>
 					<li><a href="letthemchoose.html">Let them choose</a></li>
 					<li> <a href="login.html"><i class="far fa-user"></i></a></li>
@@ -144,8 +144,9 @@
                     <button class='bg-danger
                     px-3 py-2 border-0 mx-3 text-light'>
                     Add more treasures </button></a>
-                    <a href='#'><button class='bg-danger
-                    px-3 py-2 border-0 text-light'>Checkout </button></a>
+                   <button class='bg-danger px-3 py-2 border-0 text-light'>
+                   <a href='checkout.php' class='text-light text-decoration-none'>
+                   Checkout </a></button>
         ";}else{
         }
         ?>        
