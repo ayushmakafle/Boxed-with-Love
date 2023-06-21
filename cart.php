@@ -97,15 +97,20 @@
                     }
                     ?>
                     <td> NRs. <?php echo $price_table?> /- </td>
-                    <td> <input type="checkbox"></td>
+                    <td> <input type="checkbox" name="removeitem[]"
+                    value="<?php echo $product_id?>"></td>
                     <td> 
                         <!--button class="bg-danger-subtle
             px-3 py-2 border-0 text-dramatic">Update</button-->
             <input type="submit" value="Update" 
             class="bg-danger-subtle
             px-3 py-2 border-0 text-dramatic" name="update_cart">
-                        <button class="bg-danger-subtle
-            px-3 py-2 border-0 text-dramatic">Remove</button>
+                        <!--button class="bg-danger-subtle
+            px-3 py-2 border-0 text-dramatic">Remove</button-->
+            <input type="submit" value="Remove" 
+            class="bg-danger-subtle
+            px-3 py-2 border-0 text-dramatic" name="remove_cart">
+                        
                        
                     </td>
                 </tr>
@@ -128,6 +133,25 @@
     </div>
  </div>
  </form>   
+ <!--function to remove item-->
+ <?php
+ function remove_cart_item(){
+    global $con;
+    if(isset($_POST['remove_cart'])){
+        foreach($_POST['removeitem'] as $remove_id){
+            echo $remove_id;
+            $delete_query="DELETE from `cart_details` where 
+            product_id=$remove_id";
+            $run_delete=mysqli_query($con,$delete_query);
+            if($run_delete){
+                echo"<script>window.open('cart.php','_self')
+                </script>";
+            }
+        }
+    }
+ }
+ echo $remove_item=remove_cart_item();
+ ?>
 
 		<!--Footer-->
 		<footer class="section-p1">
