@@ -47,6 +47,7 @@
  <!--table-->
  <div class="container m-2">
     <div class="row">
+        <form action="" method="post"> 
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -82,13 +83,27 @@
                     <td> <?php echo $product_title?> </td>
                     <td> <img src="./admin_area/product_images/<?php echo $product_image1?>" alt=""
                     class="cart_img" style="width: 50px; height: 50px; object-fit:contain"></td>
-                    <td> <input type="text" name="" id=""
+                    <td> <input type="text" name="qty" 
                     class="form-input w-50"></td>
+                    <?php
+                    $get_ip_address=getIPAddress();
+                    if(isset($_POST['update_cart'])){
+                       $quantities=$_POST['qty']; 
+                       $update_cart = "UPDATE `cart_details` set quantity=$quantities
+                       where ip_address='$get_ip_address'";
+                        $result_product_quantity = mysqli_query($con,$update_cart);
+                        $total_price= $total_price*$quantities;
+
+                    }
+                    ?>
                     <td> NRs. <?php echo $price_table?> /- </td>
                     <td> <input type="checkbox"></td>
                     <td> 
-                        <button class="bg-danger-subtle
-            px-3 py-2 border-0 text-dramatic">Update</button>
+                        <!--button class="bg-danger-subtle
+            px-3 py-2 border-0 text-dramatic">Update</button-->
+            <input type="submit" value="Update" 
+            class="bg-danger-subtle
+            px-3 py-2 border-0 text-dramatic" name="update_cart">
                         <button class="bg-danger-subtle
             px-3 py-2 border-0 text-dramatic">Remove</button>
                        
@@ -112,7 +127,7 @@
         </div>
     </div>
  </div>
-   
+ </form>   
 
 		<!--Footer-->
 		<footer class="section-p1">
