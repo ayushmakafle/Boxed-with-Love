@@ -33,7 +33,7 @@
 				</ul>
 			</div>
 			<div id ="mobile">
-				<a href="cart.html"><i class="far fa-solid fa-cart-shopping"></i></a>
+				<a href="cart.php"><i class="far fa-solid fa-cart-shopping"></i></a>
 				<i id="bar" class="fas fa-outdent"></i>
 			</div>
       </section>
@@ -50,7 +50,7 @@
             if(!isset($_SESSION['username'])){
 				header('Location: user_login.php');
             }else{
-                include('payment.php');
+                header('Location:payment.php');
             }
             ?>
         </div>
