@@ -60,7 +60,7 @@
                             <h6>Pending orders</h6> </a>
                     </li>
                     <li class="nav-item bg-danger-subtle">
-                        <a class="nav-link text-danger"href="#">
+                        <a class="nav-link text-danger"href="profile.php?edit_account">
                             <h6>Edit account</h6> </a>
                     </li>
                     <li class="nav-item bg-danger-subtle">
@@ -78,9 +78,12 @@
                 </ul>
 
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 text-center">
             <?php
             get_user_order_details();
+            if(isset($_GET['edit_account'])){
+                include('edit_account.php');
+            }
             ?>
             </div>
         </div>
