@@ -100,7 +100,8 @@
                     }
                     ?>
                     <td> NRs. <?php echo $price_table?> /- </td>
-                    <td> <input type="checkbox" name="removeitem[]"
+                    <td> <input type="checkbox" 
+                    name="removeitem[]"
                     value="<?php echo $product_id?>"></td>
                     <td> 
                         <!--button class="bg-danger-subtle
