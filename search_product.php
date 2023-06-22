@@ -26,8 +26,8 @@
                     <li><a href="bestseller.html">Best Sellers</a></li>
 					<li><a href="letthemchoose.html">Let them choose</a></li>
 					<li><a href="aboutus.html">About us</a></li>
-					<li> <a href="login.html"><i class="far fa-user"></i></a></li>
-          <li id="lg-bag"> <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
+					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+          <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
 				</ul>
 			</div>
@@ -58,7 +58,9 @@
                             <a class="nav-link" href="#">Pick a Card</a>
                           </li>
                           <li class="nav-item">
-                          <a class="nav-link" href="#"> <i class="fa-solid fa-cart-shopping"></i>
+                          <a class="nav-link" href="cart.php"> <i class="fa-solid fa-cart-shopping">
+
+                          </i>
                           <sup> <?php cart_item(); ?></sup></a>
                         </li>
                         <li class="nav-item">

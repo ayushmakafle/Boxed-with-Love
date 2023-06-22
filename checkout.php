@@ -25,8 +25,8 @@
                     <li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php" >Best Sellers</a></li>
 					<li><a href="letthemchoose.html">Let them choose</a></li>
-					<li> <a href="login.html"><i class="far fa-user"></i></a></li>
-          <li id="lg-bag"> <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
+					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+          <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
 				</ul>
 			</div>
@@ -46,7 +46,7 @@
         <div class="row">
             <?php
             if(!isset($_SESSION['username'])){
-            include('users_area/user_login.php');
+				header('Location: user_login.php');
             }else{
                 include('payment.php');
             }

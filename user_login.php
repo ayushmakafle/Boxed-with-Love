@@ -3,18 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <title>User Login</title>
       <!--Bootstrap css-->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!--fontawesone-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+     <!--Nav bar-->
+		 <section id ="header">
+            <a href="index.php"><img src="img/logoo.png" ></a>
+            <div>
+                <ul id ="navbar">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="buildaboxpage.php">Build a Box</a></li>
+                    <li><a href="bestseller.php" >Best Sellers</a></li>
+					<li><a href="letthemchoose.html">Let them choose</a></li>
+					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+                    <li id="lg-bag"> <a href="cart.php"><i class="active fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
+					<a href="#" id="close"><i class="far fa-times"></i></a>
+				</ul>
+			</div>
+			<div id ="mobile">
+				<a href="cart.html"><i class="far fa-solid fa-cart-shopping"></i></a>
+				<i id="bar" class="fas fa-outdent"></i>
+			</div>
+      </section>
+            <!--navbar end-->
+    
     <div class="container-fluid my-3">
         <h2 class="text-center text-danger">
-            New User Registration
+            User Login 
         </h2>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-lg-12 col-xl-6">
@@ -25,43 +46,23 @@
                          placeholder="enter your username"
                          name="user_name" autocomplete="off" required>
                     </div>
-                    <div class="form-outline mb-4">
-                        <label for="user_email"class="form-label">Email </label>
-                         <input type="email" id="user_email" class="form-control"
-                         placeholder="enter your email"
-                         name="user_email" autocomplete="off" required>
-                    </div>
+                    
                     <div class="form-outline mb-4">
                         <label for="user_password"class="form-label">Password </label>
                          <input type="password" id="user_password" class="form-control"
                          placeholder="enter your password"
                          name="user_password" autocomplete="off" required>
                     </div>
-                    <div class="form-outline mb-4">
-                        <label for="conf_user_password"class="form-label">Confirm Password </label>
-                         <input type="password" id="conf_user_password" class="form-control"
-                         placeholder="reenter your password"
-                         name="conf_user_password" autocomplete="off" required>
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label for="user_address"class="form-label">Address </label>
-                         <input type="text" id="user_address" class="form-control"
-                         placeholder="enter your address"
-                         name="user_address" autocomplete="off" required>
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label for="user_contact"class="form-label">Contact </label>
-                         <input type="text" id="user_contact" class="form-control"
-                         placeholder="enter your phone number"
-                         name="user_contact" autocomplete="off" required>
-                    </div>
+                   
+                   
                     <div class="text-center mt-4 pt-2"></fiv>
-                        <input type="submit" value="Register"
+                        <input type="submit" value="Login"
                         class="bg-danger-subtle py-2 border-0 px-3"
                         name="user_register">
                         <p class="small fw-bold mt-2 pt-1">
-                            Already have an account? 
-                            <a class="text-danger" href="user_login.php">Login</a></p>
+                            Don't have an account? 
+                            <a class="text-danger" 
+                            href="user_registration.php">Register</a></p>
 
                 </form>
             </div>
