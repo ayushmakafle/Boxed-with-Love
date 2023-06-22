@@ -90,13 +90,11 @@
                     class="form-input w-50"></td>
                     <?php
                     $get_ip_address=getIPAddress();
-                    if(isset($_POST['update_cart'])){
-                       $quantities=$_POST['qty']; 
-                       $update_cart = "UPDATE `cart_details` set quantity=$quantities
-                       where ip_address='$get_ip_address'";
-                        $result_product_quantity = mysqli_query($con,$update_cart);
-                        $total_price= $total_price*$quantities;
-
+                   if (isset($_POST['update_cart'])) {
+                        $quantities = floatval($_POST['qty']);
+                        $update_cart = "UPDATE `cart_details` SET quantity = $quantities WHERE ip_address='$get_ip_address'";
+                        $result_product_quantity = mysqli_query($con, $update_cart);
+                        $total_price = $total_price * $quantities;
                     }
                     ?>
                     <td> NRs. <?php echo $price_table?> /- </td>
