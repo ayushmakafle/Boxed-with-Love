@@ -1,3 +1,7 @@
+<!--connect file-->
+<?php
+  include('./functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,13 @@
     <!--fontawesone-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+       body{
+         overflow-x:hidden;
+       }
+    </style>
+
 </head>
 <body>
      <!--Nav bar-->
@@ -58,7 +68,7 @@
                     <div class="text-center mt-4 pt-2"></fiv>
                         <input type="submit" value="Login"
                         class="bg-danger-subtle py-2 border-0 px-3"
-                        name="user_register">
+                        name="user_login">
                         <p class="small fw-bold mt-2 pt-1">
                             Don't have an account? 
                             <a class="text-danger" 
@@ -70,3 +80,26 @@
     </div>
 </body>
 </html>
+<?php
+    if(isset($_POST['user_login'])){
+        $user_username=$_POST['user_name'];
+        $user_password=$_POST['user_password'];
+        
+        $select_query="SELECT * from `user_table` where
+        username='$user_username'";
+        $result=mysqli_query($con,$select_query);
+        $row_count=mysqli_num_rows($result);
+        $row_data=mysqli_fetch_assoc($result);
+        if($row_count>0){
+            if(password_verify($user_password,$row_data['user_password'])){
+                echo"<script>alert('Login succesful')</script>";
+
+            }else{
+                echo"<script>alert('invalid credentials')</script>";
+
+            }
+        }else{
+            echo"<script>alert('invalid credentials')</script>";
+        }
+    }
+?>
