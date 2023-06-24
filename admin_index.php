@@ -1,3 +1,8 @@
+<!--connect file-->
+<?php
+  include('includes/connect.php');
+  include('functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,15 @@
     <!--fontawesone-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+        .product_img{
+            width: 10%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
     <!--navbar-->
@@ -38,16 +51,26 @@
                 <p class="text-dramatic" text-center">Admin Name</p>
             </div>
             <div class="button text-center">
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">View Products</a></button>
-                <button><a href="insert_product.php" class="nav-link text-dramatic bg-danger-sutble m-1">Insert Products</a></button>
-                <button><a href="index.php?insertcategories" class="nav-link text-dramatic bg-danger-sutble m-1">Insert Categories</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">View Categories</a></button>
-                <button><a href="index.php?insertoccasions" class="nav-link text-dramatic bg-danger-sutble m-1">Insert Occasions</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">View Occasions</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">All Orders</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">All Payments</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">List users</a></button>
-               <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">Logout</a></button>
+                <button><a href="admin_index.php?view_products" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    View Products</a></button>
+                <button><a href="insert_product.php" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Products</a></button>
+                <button><a href="admin_index.php?insertcategories" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Categories</a></button>
+                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    View Categories</a></button>
+                <button><a href="admin_index.php?insertoccasions" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Occasions</a></button>
+                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    View Occasions</a></button>
+                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    All Orders</a></button>
+                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    All Payments</a></button>
+                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    List users</a></button>
+               <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                Logout</a></button>
 
             </div>
         </div>
@@ -59,6 +82,9 @@
             }
             if(isset($_GET['insertoccasions'])){
                 include('insert_occasions.php');
+            }
+            if(isset($_GET['view_products'])){
+                include('view_products.php');
             }
         ?>
     </div>
