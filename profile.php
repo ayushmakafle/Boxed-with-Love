@@ -64,7 +64,7 @@
                             <h6>Edit account</h6> </a>
                     </li>
                     <li class="nav-item bg-danger-subtle">
-                        <a class="nav-link text-danger"href="#">
+                        <a class="nav-link text-danger"href="profile.php?my_orders">
                             <h6>My orders</h6> </a>
                     </li>
                     <li class="nav-item bg-danger-subtle">
@@ -83,6 +83,9 @@
             get_user_order_details();
             if(isset($_GET['edit_account'])){
                 include('edit_account.php');
+            }
+			if(isset($_GET['my_orders'])){
+                include('user_orders.php');
             }
             ?>
             </div>
