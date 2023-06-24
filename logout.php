@@ -8,11 +8,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     session_destroy(); // Destroy the session
 
     // Redirect the user to the login page or any other desired page
-    header("Location: user_login.html");
+    header("Location: user_login.php");
     exit;
 } else {
     // If the user is not logged in, you can redirect them to the login page directly
-    header("Location: user_login.html");
+    header("Location: user_login.php");
     exit ;
 }
 ?>
