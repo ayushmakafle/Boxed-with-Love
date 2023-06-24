@@ -10,6 +10,23 @@
     $invoice_number= $row_fetch['invoice_number'];
     $amount_due= $row_fetch['amount_due'];
 }
+if(isset($_POST['confirm_payment'])){
+    $invoice_number=$_POST['invoice_number'];
+    $amount=$_POST['amount'];
+    $payment_mode=$_POST['payment_mode'];
+    $insert_query="INSERT into `user_payments` 
+    (order_id,invoice_number,amount,payment_mode) values
+    ($order_id,$invoice_number, $amount, '$payment_mode')";
+    $result=mysqli_query($con,$insert_query);
+    if($result){
+        echo"<h3 class='text-center'> Successfully completed the payment</h3>";
+        echo"<script>window.open('profile.php?my_orders','_self')</script>";
+    }
+    $update_orders="UPDATE `user_orders` set order_status='complete'
+    where order_id=$order_id";
+    $result=mysqli_query($con,$update_orders);
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +63,9 @@
             </div>
             <div class="form-outline my-4 text-center m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">
-                    <option value="">Select Payment Mode</option>
+                    <option>Select Payment Mode</option>
                     <option>PayPal</option>
-                    <option value="">Cash on Delivery</option>
+                    <option>Cash on Delivery</option>
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
