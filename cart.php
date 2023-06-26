@@ -84,7 +84,7 @@
             ?>
                 <tr>
                     <td> <?php echo $product_title?> </td>
-                    <td> <img src="./admin_area/product_images/<?php echo $product_image1?>" alt=""
+                    <td> <img src="product_images/<?php echo $product_image1?>" alt=""
                     class="cart_img" style="width: 50px; height: 50px; object-fit:contain"></td>
                     <td> <input type="text" name="qty" 
                     class="form-input w-50"></td>

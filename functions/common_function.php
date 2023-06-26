@@ -32,7 +32,7 @@ function getproducts(){
         echo "
         <div class='col-md-4 mb-2'>
             <div class='card'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image1' alt='$product_title'>
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
@@ -78,7 +78,7 @@ function get_unique_categories(){
         echo "
         <div class='col-md-4 mb-2'>
             <div class='card'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image1' alt='$product_title'>
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
@@ -125,7 +125,7 @@ function get_unique_occassion(){
         echo "
         <div class='col-md-4 mb-2'>
             <div class='card'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image1' alt='$product_title'>
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
@@ -202,7 +202,7 @@ function searchproduct(){
         echo "
         <div class='col-md-4 mb-2'>
             <div class='card'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image1' alt='$product_title'>
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
@@ -248,7 +248,7 @@ function view_details(){
         echo "
         <div class='col-md-4 mb-2'>
             <div class='card'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image1' alt='$product_title'>
                 <div class='card-body'>
                     <h5 class='card-title'>$product_title</h5>
                     <p class='card-text'>$product_description</p>
@@ -264,10 +264,10 @@ function view_details(){
                 <h4 class='text-center text-danger mb-5'>Related Products</h4>
             </div>
             <div class='col-md-6'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image2' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image2' alt='$product_title'>
             </div>
             <div class='col-md-6'>
-                <img class='card-img-top' src='./admin_area/product_images/$product_image3' alt='$product_title'>
+                <img class='card-img-top' src='product_images/$product_image3' alt='$product_title'>
             </div>
         </div>
     </div>";

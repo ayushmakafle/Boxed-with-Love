@@ -37,7 +37,7 @@
       </section>
             <!--navbar end-->
     <div class="container-fluid my-3">
-        <h2 class="text-center text-danger">
+        <h2 class="text-center">
             New User Registration
         </h2>
         <div class="row d-flex align-items-center justify-content-center">
@@ -81,11 +81,11 @@
                     </div>
                     <div class="text-center mt-4 pt-2"></fiv>
                         <input type="submit" value="Register"
-                        class="bg-danger-subtle py-2 border-0 px-3"
+                        class=" py-2 border-0 px-3"
                         name="user_register">
                         <p class="small fw-bold mt-2 pt-1">
                             Already have an account? 
-                            <a class="text-danger" href="user_login.php">Login</a></p>
+                            <a class="" href="user_login.php">Login</a></p>
 
                 </form>
             </div>

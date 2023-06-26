@@ -28,7 +28,7 @@
             <tr class='text-center'>
             <td class='text-danger'><?php echo $number?></td>
             <td> <?php echo $product_title?></td>
-            <td> <img src='./product_images/<?php echo $product_image1;?>' class='product_img'/></td>
+            <td> <img src='product_images/<?php echo $product_image1;?>' class='product_img'/></td>
             <td><?php echo $product_price?>/-</td>
             <td><?php
             $get_count="SELECT * from `orders_pending` where 
@@ -38,7 +38,8 @@
             echo $rows_count;
             ?></td>
             <td> <?php echo $status?></td>
-            <td><a href=''class=''>
+            <td><a href='admin_index.php?edit_products=<?php
+            echo $product_id ?>' class=""> 
             <i class='fa-solid fa-pen-to-square'></a></td>
             <td><a href=''>
             <i class='fa-solid fa-trash'></a></td>        

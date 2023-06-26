@@ -26,9 +26,9 @@ if(isset($_POST['insert_product'])){
         echo"<script>alert('please fill all available fields')</script>";
         exit();
     }else{
-        move_uploaded_file($temp_image1,"./product_images/$product_image1");
-        move_uploaded_file($temp_image2,"./product_images/$product_image2");
-        move_uploaded_file($temp_image3,"./product_images/$product_image3");
+        move_uploaded_file($temp_image1,"product_images/$product_image1");
+        move_uploaded_file($temp_image2,"product_images/$product_image2");
+        move_uploaded_file($temp_image3,"product_images/$product_image3");
 
         //insert query
         $insert_product = "INSERT INTO `products` 
