@@ -39,9 +39,10 @@
             ?></td>
             <td> <?php echo $status?></td>
             <td><a href='admin_index.php?edit_products=<?php
-            echo $product_id ?>' class=""> 
+            echo $product_id ?>' class=''> 
             <i class='fa-solid fa-pen-to-square'></a></td>
-            <td><a href=''>
+            <td><a href='admin_index.php?delete_product=<?php
+            echo $product_id ?>' class=''>
             <i class='fa-solid fa-trash'></a></td>        
         </tr>
         <?php
