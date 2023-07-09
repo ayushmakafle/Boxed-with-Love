@@ -67,7 +67,7 @@
                     All Orders</a></button>
                 <button><a href="admin_index.php?list_payments" class="nav-link text-dramatic bg-danger-sutble m-1">
                     All Payments</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                <button><a href="admin_index.php?list_users" class="nav-link text-dramatic bg-danger-sutble m-1">
                     List users</a></button>
                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
                 Logout</a></button>
@@ -115,6 +115,9 @@
             }
             if(isset($_GET['list_payments'])){
                 include('list_payments.php');
+            }
+            if(isset($_GET['list_users'])){
+                include('list_users.php');
             }
         ?>
     </div>
