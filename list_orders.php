@@ -12,7 +12,6 @@
             <th>Total Products</th>
             <th>Order Date</th>
             <th>Status</th>
-            <th>Delete</th>
         </tr>
     </thead>
     <tbody class='text-center'>";
@@ -36,7 +35,6 @@
                     <td>$total_products</td>
                     <td>$order_date</td>
                     <td>$order_status</td>
-                    <td><a href=''><i class='fa-solid fa-trash'></i></a></td>
                 </tr>";
         }
     }
