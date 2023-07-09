@@ -1,3 +1,7 @@
+<!--connect file-->
+<?php
+  include('./functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,13 +47,45 @@
                     <div>
                         <input type="submit" class="bg-danger py-2 px-3 border-0"
                         name="admin_registration" value="Register">
-                        <p class="small fw-bold mt-2 pt-1">Don't you have an account?
+                        <p class="small fw-bold mt-2 pt-1">Already have an account?
                             <a href="admin_login.php" class="link-danger">Login</a>
                         </p>
                     </div>
                 </form>
             </div>
         </div>
+        
+<?php
+if(isset($_POST['admin_registration'])){
+    $username=$_POST['username'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $hash_password=password_hash($password,PASSWORD_DEFAULT);
+    $confirm_password=$_POST['confirm_password'];
+    //select query
+    $select_query="SELECT * from `admin_table` where 
+    admin_name='$username' or admin_email='$email'";
+    $result=mysqli_query($con,$select_query);
+    $rows_count=mysqli_num_rows($result);
+    if($rows_count>0){
+        echo"<script>alert('Username and email already exists')</script>";
+    }elseif($password!=$confirm_password){
+        echo"<script>alert('passwords do not match')</script>";
+    }else{
+    //insert query
+    $insert_query="INSERT into `admin_table` 
+    (admin_name, admin_email,admin_password)values
+    ('$username','$email','$hash_password')";
+    $sql_execute=mysqli_query($con,$insert_query);
+    if($sql_execute){
+        echo"<script>alert('Registered succesfully');</script>";
+    }else{
+        die(mysqli_error($con));
+    }
+    }
+}
+
+?>
 
     </div>
 </body>

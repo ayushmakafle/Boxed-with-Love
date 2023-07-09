@@ -32,9 +32,17 @@
                 <img src="../img/logoo.png" alt="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href=""class="nav-link">Welcome Guest</a>
-                        </li>
+                            <?php
+                            if(!isset($_SESSION['username'])){
+                                echo"<li class='nav-item'>
+                                <a href=''class='nav-link'>Welcome Guest</a>
+                                </li>";
+                            }else{
+                                echo"<li class='nav-item'>
+                                <a href=''class='nav-link'>Welcome ".$_SESSION['username']."</a>
+                                </li>";
+                            }
+                            ?>
                     </ul>
                 </nav>
             </div>
