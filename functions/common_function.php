@@ -261,7 +261,7 @@ function view_details(){
         <div class='col-md-8'>
         <div class='row'>
             <div class='col-md-12'>
-                <h4 class='text-center text-danger mb-5'>Related Products</h4>
+                <h4 class='text-center text-danger mb-5'></h4>
             </div>
             <div class='col-md-6'>
                 <img class='card-img-top' src='product_images/$product_image2' alt='$product_title'>

@@ -24,7 +24,6 @@
                 <ul id ="navbar">
                     <li><a href="index.php" class="active">Home</a></li>
                     <li><a href="bestseller.html">Best Sellers</a></li>
-					<li><a href="letthemchoose.html">Let them choose</a></li>
 					<li><a href="aboutus.html">About us</a></li>
 					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
           <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>

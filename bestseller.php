@@ -24,7 +24,6 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php" class="active">Best Sellers</a></li>
-					<li><a href="letthemchoose.html">Let them choose</a></li>
 					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
                     <li> <a href="cart.php"><i class="far fa-shopping-cart"></i></a></li>
 				</ul>

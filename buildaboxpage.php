@@ -30,16 +30,15 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="buildaboxpage.php" class="active">Build a Box</a></li>
                     <li><a href="bestseller.php" >Best Sellers</a></li>
-										<li><a href="letthemchoose.html">Let them choose</a></li>
-					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
-          <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
-					<a href="#" id="close"><i class="far fa-times"></i></a>
-				</ul>
-			</div>
-			<div id ="mobile">
-				<a href="cart.html"><i class="far fa-solid fa-cart-shopping"></i></a>
-				<i id="bar" class="fas fa-outdent"></i>
-			</div>
+          					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+                    <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
+					          <a href="#" id="close"><i class="far fa-times"></i></a>
+				        </ul>
+			        </div>
+			      <div id ="mobile">
+				      <a href="cart.html"><i class="far fa-solid fa-cart-shopping"></i></a>
+				      <i id="bar" class="fas fa-outdent"></i>
+			      </div>
       </section>
             <!--navbar end-->
           <!--calling cart function-->
