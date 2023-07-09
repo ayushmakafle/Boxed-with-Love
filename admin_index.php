@@ -57,12 +57,12 @@
                     Insert Products</a></button>
                 <button><a href="admin_index.php?insertcategories" class="nav-link text-dramatic bg-danger-sutble m-1">
                     Insert Categories</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+                <button><a href="admin_index.php?view_categories" class="nav-link text-dramatic bg-danger-sutble m-1">
                     View Categories</a></button>
                 <button><a href="admin_index.php?insertoccasions" class="nav-link text-dramatic bg-danger-sutble m-1">
                     Insert Occasions</a></button>
-                <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
-                    View Occasions</a></button>
+                <button><a href="admin_index.php?view_occassions" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    View Occassions</a></button>
                 <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
                     All Orders</a></button>
                 <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
@@ -91,6 +91,12 @@
             }
             if(isset($_GET['delete_product'])){
                 include('delete_product.php');
+            }
+            if(isset($_GET['view_categories'])){
+                include('view_categories.php');
+            }
+            if(isset($_GET['view_occassions'])){
+                include('view_occassions.php');
             }
         ?>
     </div>
