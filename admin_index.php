@@ -104,6 +104,12 @@
             if(isset($_GET['edit_occassion'])){
                 include('edit_occassion.php');
             }
+            if(isset($_GET['delete_category'])){
+                include('delete_category.php');
+            }
+            if(isset($_GET['delete_occassion'])){
+                include('delete_occassion.php');
+            }
         ?>
     </div>
 <!--footer-->
