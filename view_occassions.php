@@ -22,7 +22,7 @@
         <tr>
             <td><?php echo $number;?></td>
             <td><?php echo $occassion_title;?></td>
-            <td><a href='' class=''> 
+            <td><a href='admin_index.php?edit_occassion=<?php echo $occassion_id?>' class=''> 
                 <i class='fa-solid fa-pen-to-square'></i></a>
             </td>
             <td><a href='' class=''>

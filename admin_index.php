@@ -98,6 +98,12 @@
             if(isset($_GET['view_occassions'])){
                 include('view_occassions.php');
             }
+            if(isset($_GET['edit_category'])){
+                include('edit_category.php');
+            }
+            if(isset($_GET['edit_occassion'])){
+                include('edit_occassion.php');
+            }
         ?>
     </div>
 <!--footer-->
