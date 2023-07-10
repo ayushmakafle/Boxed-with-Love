@@ -55,8 +55,6 @@
     <div class="row">
         <div class="col-md-12 bg-danger-subtle p-1 d-flex align-items-center">
             <div class="p-3">
-                <a href="#"><img src="../img/1.png" class="admin_image" style="width:100px;object-fit:contain;"></a>
-                <p class="text-dramatic" text-center">Admin Name</p>
             </div>
             <div class="button text-center">
                 <button><a href="admin_index.php?view_products" class="nav-link text-dramatic bg-danger-sutble m-1">
