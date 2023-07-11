@@ -112,6 +112,7 @@
                     $_SESSION['username']=$user_username;
 
                     echo"<script>alert('Login successful')</script>";
+                    session_start();
                     echo"<script>window.open('payment.php','_self')</script>";
 
                 }

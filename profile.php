@@ -73,7 +73,7 @@
                             <h6>Delete account</h6> </a>
                     </li>
                     <li class="nav-item bg-danger-subtle">
-                        <a class="nav-link text-danger"href="#">
+                        <a class="nav-link text-danger"href="logout.php">
                             <h6>Logout</h6> </a>
                     </li>
                 </ul>

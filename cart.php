@@ -118,6 +118,58 @@
                 <?php
                 }
             }
+            //box
+            while($row = mysqli_fetch_array($result)){
+                $product_id = $row['product_id'];
+                $select_products = "SELECT * from `box` where box_id='$product_id'";
+                $result_product = mysqli_query($con,$select_products);
+                while($row_product_price = mysqli_fetch_array($result_product)){
+                    $product_price=array($row_product_price['box_price']);
+                    $price_table=$row_product_price['box_price'];
+                    $product_title=$row_product_price['box_title'];
+                    $product_image1=$row_product_price['box_image'];
+                    $product_values=array_sum($product_price);
+                    $total_price += $product_values;
+            
+        ?>
+            <tr>
+                <td> <?php echo $product_title?> </td>
+                <td> <img src="box_images/<?php echo $product_image1?>" alt=""
+                class="cart_img" style="width: 50px; height: 50px; object-fit:contain"></td>
+                <td> <input type="text" name="qty" 
+                class="form-input w-50"></td>
+                <?php
+                $get_ip_address=getIPAddress();
+               if (isset($_POST['update_cart'])) {
+                    $quantities = floatval($_POST['qty']);
+                    $update_cart = "UPDATE `cart_details` SET quantity = $quantities WHERE ip_address='$get_ip_address'";
+                    $result_product_quantity = mysqli_query($con, $update_cart);
+                    $total_price = $total_price * $quantities;
+                }
+                ?>
+                <td> NRs. <?php echo $price_table?> /- </td>
+                <td> <input type="checkbox" 
+                name="removeitem[]"
+                value="<?php echo $product_id?>"></td>
+                <td> 
+                    <!--button class="bg-danger-subtle
+        px-3 py-2 border-0 text-dramatic">Update</button-->
+        <input type="submit" value="Update" 
+        class="bg-danger-subtle
+        px-3 py-2 border-0 text-dramatic" name="update_cart">
+                    <!--button class="bg-danger-subtle
+        px-3 py-2 border-0 text-dramatic">Remove</button-->
+        <input type="submit" value="Remove" 
+        class="bg-danger-subtle
+        px-3 py-2 border-0 text-dramatic" name="remove_cart">
+                    
+                   
+                </td>
+            </tr>
+            <?php
+            }
+        }
+            
         }
         else{
             echo "<br><h3 class='text-center text-danger'>Cart is empty</h3>";

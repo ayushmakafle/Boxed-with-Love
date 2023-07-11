@@ -53,13 +53,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="#">Choose a Box <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="buildaboxpage.php?chooseabox">Choose a Box <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Fill the Box</a>
+                          <a class="nav-link" href="buildaboxpage.php?fillthebox">Fill the Box</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pick a Card</a>
+                            <a class="nav-link" href="buildaboxpage.php?pickacard">Pick a Card</a>
                           </li>
                         <li class="nav-item">
                           <a class="nav-link" href="cart.php"> <i class="fa-solid fa-cart-shopping"></i>
@@ -81,104 +81,16 @@
                   </nav>
       </div>
       <!--build box nav bar end-->
-<br>
-      <div class="bg-light-subtle">
-        <h3 class="text-center">Fill the Box</h3>
-        <p class="text-center">Handpick sweet surprises</p>
-      </div>
-<div class="row">
-  <div class="col-md-10">
-    <!--products-->
-    <div class="row">
-    <!--fetching products-->
-    <?php
-    getproducts();
-    get_unique_categories();
-    get_unique_occassion();
-    /*
-      $select_query="select * from `products` order by rand() limit 0,9";
-      $result_query=mysqli_query($con,$select_query);
-      //$row = mysqli_fetch_assoc($result_query);
-      //echo $row['product_title'];
-      while($row = mysqli_fetch_assoc($result_query)){
-        $product_id=$row['product_id'];
-        $product_title=$row['product_title'];
-        $product_description=$row['product_description'];
-        //$product_keywords = $row['product_keywords'];
-        $category_id = $row['product_category'];
-        $occasion_id = $row['product_occasion'];
-        $product_price = $row['product_price'];
-        $product_image1 = $row['product_image1'];
-        //$product_image2 = $row['product_image2'];
-        //$product_image3 = $row['product_image3'];
-        echo " <div class='col-md-4 mb-2'>
-        <div class='card' >
-          <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_title'>
-          <div class='card-body'>
-            <h5 class='card-title'>$product_title</h5>
-            <p class='card-text'>$product_description</p>
-            <a href='#' class='btn btn-primary' style='background-color: hotpink; border: 0;'> Add To Box</a>
-            <a href='#' class='btn btn-primary' style='background-color: hotpink;border: 0;'>View</a>
-          </div>
-        </div>
-      </div>";
 
-      }
-      */
-    ?>
-      <!--row end-->
-    </div>
-    <!--col end-->
-  </div>
-  <!--Side nav-->
-  <div class="col-md-2 bg-danger-subtle p-0">
-    <!--occasion-->
-    <ul class="navbar-nav me-auto text-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light-emphasis"><h4>Occasion</h4></a>
-      </li>
-      <?php
-      getoccassion();
-          /*
-          $select_occasion = "SELECT * from `occasions`";
-          $result_occasion = mysqli_query($con,$select_occasion);
-          //$row_data=mysqli_fetch_assoc($result_occasion);
-          //echo $row_data['occasion_title'];
-          while($row_data=mysqli_fetch_assoc($result_occasion)){
-            $occasion_title=$row_data['occasion_title'];
-            $occasion_id=$row_data['occasion_id'];
-            echo "<li class='nav-item bg-gradient'>
-            <a href='buildaboxpage.php?occasion=$occasion_id' class='nav-link text-light-emphasis'>$occasion_title</a>
-          </li>";
-          }
-          */
-      ?>
-    </ul>
-    <!--categories-->
-    <ul class="navbar-nav me-auto text-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light-emphasis"><h4>Categories</h4></a>
-      </li>
-      <?php
-          getcategory();
-          /*
-          $select_category = "SELECT * from `categories`";
-          $result_category = mysqli_query($con,$select_category);
-          //$row_data=mysqli_fetch_assoc($result_occasion);
-          //echo $row_data['occasion_title'];
-          while($row_data=mysqli_fetch_assoc($result_category)){
-            $category_title=$row_data['category_title'];
-            $category_id=$row_data['category_id'];
-            echo "<li class='nav-item bg-gradient'>
-            <a href='buildaboxpage.php?category=$category_id' class='nav-link text-light-emphasis'>$category_title</a>
-          </li>";
-          }
-          */
-      ?>
-    </ul>
-
-  </div>
-</div>
+<?php
+if (!isset($_GET['chooseabox']) && !isset($_GET['pickacard'])) {
+  include('fillthebox.php');
+} elseif (isset($_GET['chooseabox'])) {
+  include('chooseabox.php');
+} elseif (isset($_GET['pickacard'])) {
+  include('pickacard.php');
+}
+?>
 		<!--Footer-->
 		<footer class="section-p1">
 			<div class="col">

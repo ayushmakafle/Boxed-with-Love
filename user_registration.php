@@ -1,6 +1,10 @@
 <!--connect file-->
 <?php
   include('./functions/common_function.php');
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+        include'./includes/connect.php';
+        $username=$_POST['user_username'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

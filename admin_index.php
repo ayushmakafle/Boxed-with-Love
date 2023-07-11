@@ -69,6 +69,10 @@
                     Insert Occasions</a></button>
                 <button><a href="admin_index.php?view_occassions" class="nav-link text-dramatic bg-danger-sutble m-1">
                     View Occassions</a></button>
+                <button><a href="admin_index.php?insertbox" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Box</a></button>
+                <button><a href="admin_index.php?insertcard" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Card</a></button>
                 <button><a href="admin_index.php?list_orders" class="nav-link text-dramatic bg-danger-sutble m-1">
                     All Orders</a></button>
                 <button><a href="admin_index.php?list_payments" class="nav-link text-dramatic bg-danger-sutble m-1">
@@ -88,6 +92,12 @@
             }
             if(isset($_GET['insertoccasions'])){
                 include('insert_occasions.php');
+            }
+            if(isset($_GET['insertbox'])){
+                include('admin_insert_box.php');
+            }
+            if(isset($_GET['insertcard'])){
+                include('admin_insert_card.php');
             }
             if(isset($_GET['view_products'])){
                 include('view_products.php');
