@@ -46,7 +46,70 @@ function getproducts(){
 }
 }
 }
+//getting box
+function getbox(){
+    global $con; // assuming $con is the database connection variable
+    
+    $select_query = 'SELECT * FROM `box` ORDER BY RAND() LIMIT 0,9';
+    $result_query = mysqli_query($con, $select_query);
 
+    if (!$result_query) {
+        // Handle query error
+        echo "Error executing query: " . mysqli_error($con);
+        return;
+    }
+
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $box_id = $row['box_id'];
+        $box_name = $row['box_name'];
+        $box_description = $row['box_description'];
+        $box_price = $row['box_price'];
+        $box_image = $row['box_image'];
+
+        echo "
+        <div class='col-md-4 mb-2'>
+            <div class='card'>
+                <img class='card-img-top' src='box_images/$box_image' alt='$box_name'>
+                <div class='card-body'>
+                    <h5 class='card-title'>$box_name</h5>
+                    <p class='card-text'>$box_description</p>
+                    <p class='card-text'>NRs $box_price</p>
+                    <a href='buildaboxpage.php?add_to_cart=$box_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Select Box</a>
+                </div>
+            </div>
+        </div>";
+    }
+}
+//getting cards
+function getcard(){
+    global $con; // assuming $con is the database connection variable
+    
+    $select_query = 'SELECT * FROM `card` ORDER BY RAND() LIMIT 0,9';
+    $result_query = mysqli_query($con, $select_query);
+
+    if (!$result_query) {
+        // Handle query error
+        echo "Error executing query: " . mysqli_error($con);
+        return;
+    }
+
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $card_id = $row['card_id'];
+        $card_name = $row['card_name'];
+        $card_image = $row['card_image'];
+
+        echo "
+        <div class='col-md-4 mb-2'>
+            <div class='card'>
+                <img class='card-img-top' src='card_images/$card_image' alt='$card_name'>
+                <div class='card-body'>
+                    <h5 class='card-title'>$card_name</h5>
+                    <a href='buildaboxpage.php?add_to_cart=$card_id' class='btn btn-primary' style='background-color: hotpink; border: 0;'>Select Card</a>
+                </div>
+            </div>
+        </div>";
+    }
+}
 //getting unique categories
 function get_unique_categories(){
     global $con; // assuming $con is the database connection variable
