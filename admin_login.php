@@ -63,10 +63,11 @@
             $_SESSION['admin_name']=$username;
 
             if(password_verify($password,$row_data['admin_password'])){
-                if($row_count==1 and $row_count_cart==0){
+                if($row_count==1){
                     $_SESSION['admin_name']=$username;
 
                     echo"<script>alert('Login successful')</script>";
+                    session_start();
                     echo"<script>window.open('admin_index.php','_self')</script>";
 
                 }

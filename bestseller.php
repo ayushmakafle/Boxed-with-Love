@@ -1,3 +1,7 @@
+<?php
+  include('includes/connect.php');
+  include('functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +53,7 @@
                             </div>
                             <h4>NRs 2300</h4>
                         </div>
-                        <a href="#"><i class ="fal fa-shopping-cart cart"></i></a>
+                        <a href="buildaboxpage.php?add_to_cart=birthday"><i class ="fal fa-shopping-cart cart"></i></a>
                     </div>
                     <div class="pro">
                         <img src="img/coffee.png" alt="coffee box">

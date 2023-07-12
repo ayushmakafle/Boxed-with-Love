@@ -33,13 +33,13 @@
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                             <?php
-                            if(!isset($_SESSION['username'])){
+                            if(!isset($_SESSION['admin_name'])){
                                 echo"<li class='nav-item'>
                                 <a href=''class='nav-link'>Welcome Guest</a>
                                 </li>";
                             }else{
                                 echo"<li class='nav-item'>
-                                <a href=''class='nav-link'>Welcome ".$_SESSION['username']."</a>
+                                <a href=''class='nav-link'>Welcome ".$_SESSION['admin_name']."</a>
                                 </li>";
                             }
                             ?>
@@ -73,13 +73,15 @@
                     Insert Box</a></button>
                 <button><a href="admin_index.php?insertcard" class="nav-link text-dramatic bg-danger-sutble m-1">
                     Insert Card</a></button>
+                <button><a href="admin_index.php?insertbestsellers" class="nav-link text-dramatic bg-danger-sutble m-1">
+                    Insert Best Sellers</a></button>
                 <button><a href="admin_index.php?list_orders" class="nav-link text-dramatic bg-danger-sutble m-1">
                     All Orders</a></button>
                 <button><a href="admin_index.php?list_payments" class="nav-link text-dramatic bg-danger-sutble m-1">
                     All Payments</a></button>
                 <button><a href="admin_index.php?list_users" class="nav-link text-dramatic bg-danger-sutble m-1">
                     List users</a></button>
-               <button><a href="" class="nav-link text-dramatic bg-danger-sutble m-1">
+               <button><a href="admin_logout.php" class="nav-link text-dramatic bg-danger-sutble m-1">
                 Logout</a></button>
 
             </div>
@@ -98,6 +100,9 @@
             }
             if(isset($_GET['insertcard'])){
                 include('admin_insert_card.php');
+            }
+            if(isset($_GET['insertbestsellers'])){
+                include('admin_insert_best_sellers.php');
             }
             if(isset($_GET['view_products'])){
                 include('view_products.php');
