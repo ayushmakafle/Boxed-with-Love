@@ -157,16 +157,12 @@
 				</div>
 				<div class="col">
 					<h4> My Account</h4>
-					<a href="#">Sign In</a>
-					<a href="#"> View Cart</a>
-					<a href="#">My Wishlist</a>
-					<a href="#">Track My Order</a>
-					<a href="#">Help</a>
+					<a href="user_login.php">Sign In</a>
+					<a href="cart.php"> View Cart</a>
 				</div>
 				<div class="col">
-					<h4>Earn with Us</h4>
-					<a href="#">Sell on Boxed with Love</a>
-					<a href="#">Code of Conduct</a>
+					<h4></h4>
+					<a href="admin_login.php">Admin</a>
 				</div>
 				<div class="col install">
 					<h4>Install App</h4>
@@ -178,10 +174,7 @@
 					<h4 style="margin-top: 20px;">Secured Payment Gateways</h4>
 					<div class="row">
 						<div class="payrow">
-						<img src="img/esewa_og.png">
 						<img src="img/khalti.jpg">
-						<img src="img/ime.png">
-						<img src="img/fonepay_payments_fatafat.png">
 					</div>
 					</div>
 				</div>

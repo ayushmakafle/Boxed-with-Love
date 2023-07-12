@@ -49,14 +49,16 @@
         $run_query=mysqli_fetch_array($result);
         $user_id = $run_query['user_id'];
     ?>
+    <br>
     <div class="container">
         <h2 class="text-center text-danger">Payment Options</h2>
         <div class="row d-flex justify-content-center align-items-center my-5">
             <div class="col-md-6">
-                <a href="https://www.khalti.com/" target="_blank">
+                <a href="order.php?user_id=<?php echo $user_id?>>">
                 <img src="img/khalti.jpg" style=" width: 50% ;
         margin: auto;
         display: block;"> </a>
+
             </div>
             <div class="col-md-6">
                 <a href="order.php?user_id=<?php echo $user_id?>" target="_blank"><h2>Pay Offline </h2></a>
