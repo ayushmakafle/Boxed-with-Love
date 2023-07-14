@@ -11,7 +11,8 @@
     <?php
     getproducts();
     get_unique_categories();
-    get_unique_occassion();
+get_unique_occassion();
+
     ?>
       <!--row end-->
     </div>
@@ -19,15 +20,6 @@
   </div>
   <!--Side nav-->
   <div class="col-md-2 bg-danger-subtle p-0">
-    <!--occasion-->
-    <ul class="navbar-nav me-auto text-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light-emphasis"><h4>Occasion</h4></a>
-      </li>
-      <?php
-      getoccassion();
-      ?>
-    </ul>
     <!--categories-->
     <ul class="navbar-nav me-auto text-center">
       <li class="nav-item">
@@ -37,6 +29,16 @@
           getcategory();
       ?>
     </ul>
+    <!--occasion-->
+    <ul class="navbar-nav me-auto text-center">
+      <li class="nav-item">
+        <a href="#" class="nav-link text-light-emphasis"><h4>Occasion</h4></a>
+      </li>
+      <?php
+      getoccassion();
+      ?>
+    </ul>
+    
 
   </div>
 </div>
