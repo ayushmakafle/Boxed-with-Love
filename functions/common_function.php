@@ -437,14 +437,13 @@ function get_user_order_details(){
                     $result_orders_query=mysqli_query($con,$get_orders);
                     $row_count=mysqli_num_rows($result_orders_query);
                     if($row_count>0){
-                        echo"<h3 class='text-center my-5'>You have <span class='text-danger'>
-                        $row_count</span> pending orders</h3>
-                        <p class='text-center'><a href='profile.php?my_orders' class='text-dark'>
-                        Order Details</a></p>";
+                        echo"<br>
+                        <h2 class='text-center text-danger'><a href='profile.php?my_orders' class='text-danger '>
+                        Order Details</a></h2>";
                     }else{
-                        echo"<h3 class='text-center my-5'>You have no pending orders</h3>
-                        <p class='text-center'><a href='buildaboxpage.php' class='text-dark'>
-                        Build a box</a></p>";
+                        echo"
+                        <h3 class='text-center text-danger'><a href='buildaboxpage.php' class='text-danger'>
+                        Build a box</a></h3>";
                     }
                 }
             }

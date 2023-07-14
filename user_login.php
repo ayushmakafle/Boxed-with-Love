@@ -85,18 +85,11 @@
         $user_username=$_POST['user_name'];
         $user_password=$_POST['user_password'];
         $user_ip=getIPAddress();
-
         $select_query="SELECT * from `user_table` where
         username='$user_username'";
         $result=mysqli_query($con,$select_query);
         $row_count=mysqli_num_rows($result);
         $row_data=mysqli_fetch_assoc($result);
-
-        //cart item
-        $select_query_cart="SELECT * from `cart_details` where
-        ip_address='$user_ip'";
-        $select_cart=mysqli_query($con,$select_query_cart);
-        $row_count_cart=mysqli_num_rows($select_cart);
 
         if($row_count>0){
             $_SESSION['username']=$user_username;
@@ -107,15 +100,14 @@
 
                     $_SESSION['username']=$user_username;
                     echo"<script>alert('Login successful')</script>";
-                    echo"<script>window.open('profile.php','_self')</script>";
+                    header("Location: profile.php");
+
 
                 }
             }else{
                 echo"<script>alert('invalid credentials')</script>";
 
             }
-        }else{
-            echo"<script>alert('invalid credentials')</script>";
         }
   
 ?>

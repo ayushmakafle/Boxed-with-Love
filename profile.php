@@ -3,7 +3,11 @@
  //session_start();
   include('includes/connect.php');
   include('functions/common_function.php');
- 
+  if (!isLoggedIn()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: user_login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,10 +60,7 @@
                         <a class="nav-link text-light"href="#">
                             <h4>Your Profile</h4> </a>
                     </li>
-                    <li class="nav-item bg-danger-subtle">
-                        <a class="nav-link text-danger"href="#">
-                            <h6>Pending orders</h6> </a>
-                    </li>
+                    
                     <li class="nav-item bg-danger-subtle">
                         <a class="nav-link text-danger"href="profile.php?edit_account">
                             <h6>Edit account</h6> </a>
