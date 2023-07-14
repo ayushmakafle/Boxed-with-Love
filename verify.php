@@ -21,14 +21,14 @@ $payload = array(
 );
 
 $headers = array(
-    "Authorization" => "key test_secret_key_5598b49d04674fcc9e4488cbb58ce896"
+    "Authorization" => "key test_secret_key_c481f0e7e2f44f6db48854a2f24c3144"
 );
 
 $amount = (int) $amount;
 
 $URL = "https://khalti.com/api/v2/payment/verify/";
 $headers = [
-    "Authorization: Key test_secret_key_5598b49d04674fcc9e4488cbb58ce896",
+    "Authorization: Key test_secret_key_c481f0e7e2f44f6db48854a2f24c3144",
     "Content-Type: application/json"
 ];
 
@@ -57,8 +57,10 @@ if ($response !== false) {
     $sql_update_payment = "INSERT INTO user_payments (payment_mode,amount,date) VALUES ('Khalti', '$amount',NOW())";
     $result = mysqli_query($con, $sql);
     $result_update_payment = mysqli_query($con, $sql_update_payment);
-    update_user_order_table();
-
+    // Redirect to user_profile.php after successful payment
+    echo"<script>
+        console.log('Redirecting to user_profile.php');
+        window.location.href = 'profile.php';</script>";
 
 } else {
     // Request failed
