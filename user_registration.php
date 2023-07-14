@@ -124,6 +124,7 @@ if(isset($_POST['user_register'])){
     $sql_execute=mysqli_query($con,$insert_query);
     if($sql_execute){
         echo"<script>alert('Registered succesfully');</script>";
+        echo"<script>window.open('index.php','_self'); </script>";
     }else{
         die(mysqli_error($con));
     }
@@ -136,7 +137,7 @@ if(isset($_POST['user_register'])){
     if($rows_count>0){
         $_SESSION['username']=$user_username;
         echo"<script>alert('you have items in your cart');</script>";
-        echo"<script>window.open('checkout.php','_self'); </script>";
+        echo"<script>window.open('index.php','_self'); </script>";
     }else{
         echo"<script>window.open('index.php','_self'); </script>";
     }

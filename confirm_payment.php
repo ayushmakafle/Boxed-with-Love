@@ -1,5 +1,5 @@
 <!--connect file-->
-<?php
+<!--?php
   include('includes/connect.php');  
   session_start();
   if(isset($_GET['order_id'])){
@@ -37,9 +37,9 @@ if(isset($_POST['confirm_payment'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment page</title>
      <!--Bootstrap css-->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!--fontawesone-->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <!--link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <style>
@@ -56,12 +56,12 @@ if(isset($_POST['confirm_payment'])){
             <div class="form-outline my-4 text-center">
             <label for="" class="">Invoice Number</label>
                 <input type="text" class="form-control w-50 m-auto"
-                name="invoice_number" value=<?php echo $invoice_number?>> 
+                name="invoice_number" value=<!--?php echo $invoice_number?>> 
             </div>
             <div class="form-outline my-4 text-center">
                 <label for="" class="">Amount</label>
                 <input type="text" class="form-control w-50 m-auto"
-                name="amount" value=<?php echo $amount_due?>>
+                name="amount" value=<!--?php echo $amount_due?>>
             </div>
             <div class="form-outline my-4 text-center m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">

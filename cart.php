@@ -35,10 +35,20 @@ if (isset($_POST['checkout'])) {
     
     // Redirect to the payment page
     if ($result_bill) {
-        header("Location: payment.php?bill_id=$bill_id");
-        exit();
-    } else {
-       echo "Error creating the bill.";
+        if ($result_bill) {
+            // Delete cart items after creating the bill
+            $delete_cart_query = "DELETE FROM cart_details WHERE ip_address='$get_ip_address'";
+            $delete_cart_result = mysqli_query($con, $delete_cart_query);
+        
+            if ($delete_cart_result) {
+                header("Location: payment.php?bill_id=$bill_id");
+                exit();
+            } else {
+                echo "Error deleting cart items.";
+            }
+        } else {
+            echo "Error creating the bill.";
+        }
     }
 }
 ?>
@@ -65,7 +75,7 @@ if (isset($_POST['checkout'])) {
                     <li><a href="index.php">Home</a></li>
                     <li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php" >Best Sellers</a></li>
-					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+					<li> <a href="profile.php"><i class="far fa-user"></i></a></li>
                     <li id="lg-bag"> <a href="cart.php"><i class="active fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
 				</ul>

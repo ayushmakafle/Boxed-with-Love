@@ -26,7 +26,7 @@
                     <li><a href="index.php" class="active">Home</a></li>
 					<li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php">Best Sellers</a></li>
-					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+					<li> <a href="profile.php"><i class="far fa-user"></i></a></li>
                     <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
 				</ul>
@@ -90,7 +90,7 @@
 								 </div>
 								 
 							  </div>
-							  <a href="buildaboxpage.html" style ="display: flex;
+							  <a href="buildaboxpage.php" style ="display: flex;
 							  justify-content: center;
 							  align-items: center;
 							  ; line-height:0;font-family: sans-serif;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: 10%;box-sizing: border-box;text-decoration: none;background: transparent;color: white;padding: 2% 10%;border-radius: 100px;font-weight: bold;cursor: pointer;font-size: 1.15vw;	text-align: center;	width: 30%;	background-color: #F9029F;">

@@ -40,7 +40,7 @@ include 'includes/connect.php';
                     <li><a href="index.php" class="active">Home</a></li>
 					<li><a href="buildaboxpage.php">Build a Box</a></li>
                     <li><a href="bestseller.php">Best Sellers</a></li>
-					<li> <a href="user_login.php"><i class="far fa-user"></i></a></li>
+					<li> <a href="profile.php"><i class="far fa-user"></i></a></li>
                     <li id="lg-bag"> <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></li>
 					<a href="#" id="close"><i class="far fa-times"></i></a>
 				</ul>
