@@ -454,4 +454,15 @@ function get_user_order_details(){
 
 
 
+//isgloggedin for payment
+function isLoggedIn()
+{
+    if (isset($_SESSION['username'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 ?>

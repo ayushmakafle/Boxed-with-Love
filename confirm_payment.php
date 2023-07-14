@@ -11,6 +11,7 @@
     $amount_due= $row_fetch['amount_due'];
 }
 if(isset($_POST['confirm_payment'])){
+    function update_user_order_table(){
     $invoice_number=$_POST['invoice_number'];
     $amount=$_POST['amount'];
     $payment_mode=$_POST['payment_mode'];
@@ -25,6 +26,7 @@ if(isset($_POST['confirm_payment'])){
     $update_orders="UPDATE `user_orders` set order_status='complete'
     where order_id=$order_id";
     $result=mysqli_query($con,$update_orders);
+}
 
 }
 ?>

@@ -102,18 +102,12 @@
             $_SESSION['username']=$user_username;
 
             if(password_verify($user_password,$row_data['user_password'])){
-                if($row_count==1 and $row_count_cart==0){
-                    $_SESSION['username']=$user_username;
+                
+                    session_start();
 
+                    $_SESSION['username']=$user_username;
                     echo"<script>alert('Login successful')</script>";
                     echo"<script>window.open('profile.php','_self')</script>";
-
-                }else{
-                    $_SESSION['username']=$user_username;
-
-                    echo"<script>alert('Login successful')</script>";
-                    session_start();
-                    echo"<script>window.open('payment.php','_self')</script>";
 
                 }
             }else{
@@ -123,5 +117,5 @@
         }else{
             echo"<script>alert('invalid credentials')</script>";
         }
-    }
+  
 ?>

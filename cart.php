@@ -3,6 +3,46 @@
   include('includes/connect.php');
   include('functions/common_function.php');
 ?>
+<?php
+if (isset($_POST['checkout'])) {
+    // Create the bill in the database
+    $user_id = $_SESSION['user_id'];
+    $total_price = 0; // Initialize the total price variable
+    
+    // Fetch the product details and calculate the total price
+    $get_ip_address = getIPAddress();
+    $cart_query = "SELECT * from `cart_details` where ip_address='$get_ip_address'";
+    $result = mysqli_query($con, $cart_query);
+    $result_count = mysqli_num_rows($result);
+    
+    while ($row = mysqli_fetch_array($result)) {
+        $product_id = $row['product_id'];
+        $select_products = "SELECT * from `products` where product_id='$product_id'";
+        $result_product = mysqli_query($con, $select_products);
+        
+        while ($row_product_price = mysqli_fetch_array($result_product)) {
+            $product_price = array($row_product_price['product_price']);
+            $price_table = $row_product_price['product_price'];
+            $product_values = array_sum($product_price);
+            $total_price += $product_values;
+        }
+    }
+    
+    $query_bill = "INSERT INTO bill (amount_due) VALUES ('$total_price')";
+    $result_bill = mysqli_query($con, $query_bill);
+     // Get the generated bill_id
+     $bill_id = mysqli_insert_id($con);
+    
+    // Redirect to the payment page
+    if ($result_bill) {
+        header("Location: payment.php?bill_id=$bill_id");
+        exit();
+    } else {
+       echo "Error creating the bill.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +96,9 @@
                 $get_ip_address = getIPAddress();
                 $cart_query = "SELECT * from `cart_details` where ip_address='$get_ip_address'";
                 $result = mysqli_query($con,$cart_query);
-                $result_count=mysqli_num_rows($result);
+                $result_count = mysqli_num_rows($result);
+                $total_price = 0; // Initialize the total price variable
+              
                 if($result_count>0){
                     echo" <thead>
                     <tr>
@@ -194,9 +236,8 @@
                     <button class='bg-danger
                     px-3 py-2 border-0 mx-3 text-light'>
                     Add more treasures </button></a>
-                   <button class='bg-danger px-3 py-2 border-0 text-light'>
-                   <a href='checkout.php' class='text-light text-decoration-none'>
-                   Checkout </a></button>
+                    <button class='bg-danger px-3 py-2 border-0 text-light' type='submit' name='checkout'>Checkout</button>
+
         ";}else{
         }
         ?>        

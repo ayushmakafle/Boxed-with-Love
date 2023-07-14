@@ -20,10 +20,8 @@
             <th>S No.</th>
             <th>Amount Due</th>
             <th>Total Products</th>
-            <th>Invoice Number</th>
             <th>Date</th>
-            <th>Complete/Incomplete</th>
-            <th>Status</th>
+            <th>Payment Mode</th>
         </tr>
        </thead>
        <tbody class="bg-danger-subtle">
