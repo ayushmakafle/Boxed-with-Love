@@ -87,7 +87,7 @@ if (isset($_GET['bill_id'])) {
                 "productIdentity": "<?php echo $bill_id;?>",
                 "productName": "Bill Payment",
                 //http://localhost/nea-billing-system/payment.php?billid=12327&amount=891
-                "productUrl": "http://localhost/boxedwithlove/Boxed-with-Love/payment.php?bill_id=<?php echo $bill_id;?>",
+                "productUrl": "http://localhost/boxedwithlove/Boxed-with-Love%20-%20Copy/payment.php?bill_id=<?php echo $bill_id;?>",
                 "paymentPreference": [
                     "KHALTI",
                     "EBANKING",
@@ -98,8 +98,8 @@ if (isset($_GET['bill_id'])) {
                 "eventHandler": {
                     onSuccess(payload) {
                         console.log(payload);
-                        axios.defaults.baseURL = 'http://localhost/nea-billing-system/verify.php';
-                        axios.get("http://localhost/boxedwithlove/Boxed-with-Love/verify.php", {
+                        axios.defaults.baseURL = 'http://http://localhost/boxedwithlove/Boxed-with-Love%20-%20Copy/verify.php';
+                        axios.get("http://localhost/boxedwithlove/Boxed-with-Love%20-%20Copy/verify.php", {
                             params: {
                                 "token": payload.token,
                                 "bill_id": <?php echo $bill_id; ?>,
